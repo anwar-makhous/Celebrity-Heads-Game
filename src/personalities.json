@@ -1,0 +1,786 @@
+[
+  {
+    "name": "Pele",
+    "fact": "Brazilian footballer; three World Cup titles, widely seen as one of the greatest ever"
+  },
+  {
+    "name": "Diego Maradona",
+    "fact": "Argentine footballer; captained his country to the 1986 World Cup title, gifted dribbler"
+  },
+  {
+    "name": "Lionel Messi",
+    "fact": "Argentine footballer; record number of Ballon d'Or awards, won the 2022 World Cup"
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "fact": "Portuguese footballer; five Ballon d'Or awards, all-time record international goalscorer"
+  },
+  {
+    "name": "Zinedine Zidane",
+    "fact": "French footballer and manager; elegant playmaker, scored twice in the 1998 World Cup final"
+  },
+  {
+    "name": "David Beckham",
+    "fact": "English footballer; curling free kicks and crosses, later a global fashion and advertising figure"
+  },
+  {
+    "name": "Ronaldinho",
+    "fact": "Brazilian footballer; 2002 World Cup winner, twice world player of the year, known for flair"
+  },
+  {
+    "name": "Johan Cruyff",
+    "fact": "Dutch footballer and manager; three Ballon d'Or awards, shaped modern passing and pressing football"
+  },
+  {
+    "name": "Franz Beckenbauer",
+    "fact": "German footballer and manager; won the World Cup as captain, then again as head coach"
+  },
+  {
+    "name": "Alex Ferguson",
+    "fact": "Scottish football manager; won 13 English league titles across 26 years in charge"
+  },
+  {
+    "name": "Jose Mourinho",
+    "fact": "Portuguese football manager; won league titles in four countries and two Champions League titles"
+  },
+  {
+    "name": "Pep Guardiola",
+    "fact": "Spanish football manager; possession-based style, many league titles in three different countries"
+  },
+  {
+    "name": "Carlo Ancelotti",
+    "fact": "Italian football manager; won a record five European Cup titles as a coach"
+  },
+  {
+    "name": "Kylian Mbappe",
+    "fact": "French footballer; scored in two World Cup finals, famous for blistering pace"
+  },
+  {
+    "name": "Mohamed Salah",
+    "fact": "Egyptian footballer; prolific left-footed goalscorer and one of Africa's most decorated players"
+  },
+  {
+    "name": "Didier Drogba",
+    "fact": "Ivorian footballer; powerful striker who helped his country reach its first World Cup"
+  },
+  {
+    "name": "Zlatan Ibrahimovic",
+    "fact": "Swedish footballer; acrobatic goals and league titles in several different European countries"
+  },
+  {
+    "name": "Michael Jordan",
+    "fact": "American basketball player; six championship titles and the highest career scoring average in the league"
+  },
+  {
+    "name": "LeBron James",
+    "fact": "American basketball player; four championships and the most career points in league history"
+  },
+  {
+    "name": "Serena Williams",
+    "fact": "American tennis player; 23 Grand Slam singles titles and long spells as world number one"
+  },
+  {
+    "name": "Roger Federer",
+    "fact": "Swiss tennis player; 20 Grand Slam titles, eight of them won at Wimbledon"
+  },
+  {
+    "name": "Rafael Nadal",
+    "fact": "Spanish tennis player; 22 Grand Slam titles including a record 14 French Open wins"
+  },
+  {
+    "name": "Novak Djokovic",
+    "fact": "Serbian tennis player; 24 Grand Slam singles titles and the most weeks ranked world number one"
+  },
+  {
+    "name": "Steffi Graf",
+    "fact": "German tennis player; 22 Grand Slam singles titles and a calendar-year Golden Slam in 1988"
+  },
+  {
+    "name": "Muhammad Ali",
+    "fact": "American boxer; three-time heavyweight world champion and Olympic gold medallist in 1960"
+  },
+  {
+    "name": "Manny Pacquiao",
+    "fact": "Filipino boxer; won world titles across eight different weight divisions, the first to do so"
+  },
+  {
+    "name": "Lewis Hamilton",
+    "fact": "British racing driver; seven Formula One world titles and a record number of race wins"
+  },
+  {
+    "name": "Michael Schumacher",
+    "fact": "German racing driver; seven Formula One world titles, five of them won in a row"
+  },
+  {
+    "name": "Ayrton Senna",
+    "fact": "Brazilian racing driver; three Formula One world titles in the late 1980s and early 1990s"
+  },
+  {
+    "name": "Usain Bolt",
+    "fact": "Jamaican sprinter; world records at 100 and 200 metres, eight Olympic gold medals"
+  },
+  {
+    "name": "Michael Phelps",
+    "fact": "American swimmer; 23 Olympic gold medals, the most decorated Olympian in history"
+  },
+  {
+    "name": "Simone Biles",
+    "fact": "American gymnast; most world championship medals in the sport, plus several Olympic golds"
+  },
+  {
+    "name": "Tiger Woods",
+    "fact": "American golfer; 15 major titles and long spells ranked world number one"
+  },
+  {
+    "name": "Sachin Tendulkar",
+    "fact": "Indian cricketer; most international runs in history and one hundred international centuries"
+  },
+  {
+    "name": "Tom Brady",
+    "fact": "American football quarterback; seven Super Bowl titles, more than any other player"
+  },
+  {
+    "name": "Beyonce",
+    "fact": "American singer and dancer; R&B and pop hits, holds the record for most Grammy wins"
+  },
+  {
+    "name": "Taylor Swift",
+    "fact": "American singer-songwriter; record-breaking albums and stadium tours, plus many Grammy Awards"
+  },
+  {
+    "name": "Drake",
+    "fact": "Canadian rapper and singer; huge streaming numbers and dozens of chart-topping hip-hop hits"
+  },
+  {
+    "name": "Rihanna",
+    "fact": "Barbadian singer and businesswoman; global pop and R&B hits, plus a widely sold makeup line"
+  },
+  {
+    "name": "Ed Sheeran",
+    "fact": "English singer-songwriter; acoustic pop hits played with a loop pedal, and huge world tours"
+  },
+  {
+    "name": "Bad Bunny",
+    "fact": "Puerto Rican rapper and singer; leading reggaeton and Latin trap artist, global streaming records"
+  },
+  {
+    "name": "Shakira",
+    "fact": "Colombian singer-songwriter; global Latin pop hits, a distinctive voice and energetic dancing"
+  },
+  {
+    "name": "Adele",
+    "fact": "English singer-songwriter; powerful breakup ballads, huge-selling albums and several Grammy Awards"
+  },
+  {
+    "name": "Bruno Mars",
+    "fact": "American singer; retro funk, soul and pop hits, and many Grammy Awards"
+  },
+  {
+    "name": "Billie Eilish",
+    "fact": "American singer-songwriter; whispery alternative pop, major Grammy Awards and an Oscar-winning film song"
+  },
+  {
+    "name": "Dua Lipa",
+    "fact": "English singer; disco-flavored dance pop hits, Grammy Awards and big arena tours"
+  },
+  {
+    "name": "The Weeknd",
+    "fact": "Canadian singer; dark synth-pop and R&B hits with record-setting streaming numbers"
+  },
+  {
+    "name": "Kendrick Lamar",
+    "fact": "American rapper; dense storytelling albums, a Pulitzer Prize and a Super Bowl halftime show"
+  },
+  {
+    "name": "Justin Bieber",
+    "fact": "Canadian singer; discovered online as a teenager, then years of chart-topping pop hits"
+  },
+  {
+    "name": "Lady Gaga",
+    "fact": "American singer and actress; theatrical pop hits, elaborate costumes, Grammy and Oscar wins"
+  },
+  {
+    "name": "Eminem",
+    "fact": "American rapper; fast intricate rhymes, best-selling hip-hop albums and an Oscar-winning song"
+  },
+  {
+    "name": "Nicki Minaj",
+    "fact": "Trinidadian-born American rapper; colorful personas, rapid-fire verses and many pop and hip-hop hits"
+  },
+  {
+    "name": "Mick Jagger",
+    "fact": "English rock singer; energetic frontman of a band that has toured since the 1960s"
+  },
+  {
+    "name": "Bono",
+    "fact": "Irish rock singer and campaigner; stadium-filling band frontman, also known for global activism"
+  },
+  {
+    "name": "Ludwig van Beethoven",
+    "fact": "German composer and pianist; nine symphonies bridged the classical and romantic eras"
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "fact": "Austrian composer; child prodigy who wrote hundreds of works, from operas to symphonies"
+  },
+  {
+    "name": "Johann Sebastian Bach",
+    "fact": "German composer and organist; baroque master of fugues, cantatas and keyboard music"
+  },
+  {
+    "name": "Pyotr Ilyich Tchaikovsky",
+    "fact": "Russian composer; romantic symphonies, piano concertos and three of the world's most performed ballets"
+  },
+  {
+    "name": "Frederic Chopin",
+    "fact": "Polish composer and pianist; romantic piano pieces including nocturnes, waltzes and mazurkas"
+  },
+  {
+    "name": "Antonio Vivaldi",
+    "fact": "Italian baroque composer and violinist; wrote hundreds of concertos, many for solo violin"
+  },
+  {
+    "name": "Luciano Pavarotti",
+    "fact": "Italian opera tenor; powerful high notes brought opera singing to large popular audiences"
+  },
+  {
+    "name": "Elvis Presley",
+    "fact": "American singer and actor; rock and roll pioneer of the 1950s with hip-swivelling stage moves"
+  },
+  {
+    "name": "Michael Jackson",
+    "fact": "American singer and dancer; record-breaking pop albums and the moonwalk dance move"
+  },
+  {
+    "name": "John Lennon",
+    "fact": "English singer-songwriter; wrote for a hugely successful 1960s rock quartet, later a peace campaigner"
+  },
+  {
+    "name": "Freddie Mercury",
+    "fact": "British singer; theatrical rock frontman with a wide vocal range and commanding stadium performances"
+  },
+  {
+    "name": "Bob Marley",
+    "fact": "Jamaican singer-songwriter; reggae pioneer who carried the genre and its message worldwide"
+  },
+  {
+    "name": "Louis Armstrong",
+    "fact": "American trumpeter and singer; early jazz innovator with a gravelly voice and inventive solos"
+  },
+  {
+    "name": "Ella Fitzgerald",
+    "fact": "American jazz singer; known for scat improvisation and a clear, effortlessly swinging voice"
+  },
+  {
+    "name": "Aretha Franklin",
+    "fact": "American singer and pianist; gospel-trained soul voice and decades of chart hits"
+  },
+  {
+    "name": "Whitney Houston",
+    "fact": "American singer and actress; powerful ballads, record-breaking singles and successful film roles"
+  },
+  {
+    "name": "Tina Turner",
+    "fact": "American-born singer; raspy voice, energetic stage dancing and a major mid-career comeback"
+  },
+  {
+    "name": "Edith Piaf",
+    "fact": "French singer; chanson performer known for a trembling voice and dramatic love songs"
+  },
+  {
+    "name": "Zendaya",
+    "fact": "American actress; child television star turned Emmy winner and lead in blockbuster film franchises"
+  },
+  {
+    "name": "Timothee Chalamet",
+    "fact": "American actor; leading roles in science fiction epics and a musician biopic"
+  },
+  {
+    "name": "Cillian Murphy",
+    "fact": "Irish actor; television crime boss role, then an Oscar for playing an atomic physicist"
+  },
+  {
+    "name": "Tom Holland",
+    "fact": "English actor; started in musical theatre, now leads a major superhero film franchise"
+  },
+  {
+    "name": "Idris Elba",
+    "fact": "English actor; television detective lead, Hollywood action films, and a second career in music"
+  },
+  {
+    "name": "Michelle Yeoh",
+    "fact": "Malaysian actress; martial arts action star, first Asian woman to win Best Actress Oscar"
+  },
+  {
+    "name": "Jackie Chan",
+    "fact": "Hong Kong actor; martial arts comedies, known for performing his own risky stunts"
+  },
+  {
+    "name": "Shah Rukh Khan",
+    "fact": "Indian actor; leading man in decades of romantic films, with a huge international following"
+  },
+  {
+    "name": "Priyanka Chopra",
+    "fact": "Indian actress; former Miss World, Hindi film star who moved into American television and films"
+  },
+  {
+    "name": "Pedro Pascal",
+    "fact": "Chilean-American actor; fantasy and post-apocalyptic series roles, plus a masked space bounty hunter"
+  },
+  {
+    "name": "Salma Hayek",
+    "fact": "Mexican-American actress; Oscar-nominated for playing a Mexican painter, plus comedies and action films"
+  },
+  {
+    "name": "Penelope Cruz",
+    "fact": "Spanish actress; Oscar-winning supporting role, long career in Spanish and Hollywood films"
+  },
+  {
+    "name": "Margot Robbie",
+    "fact": "Australian actress and producer; comic-book villain roles and Oscar-nominated dramatic performances"
+  },
+  {
+    "name": "Nicole Kidman",
+    "fact": "Australian actress; Oscar winner, decades of leading film roles and acclaimed television dramas"
+  },
+  {
+    "name": "Ryan Gosling",
+    "fact": "Canadian actor; romantic dramas, neo-noir thrillers and comedies, multiple Oscar nominations"
+  },
+  {
+    "name": "Keanu Reeves",
+    "fact": "Canadian actor; science fiction trilogy lead and long-running action assassin franchise"
+  },
+  {
+    "name": "Denzel Washington",
+    "fact": "American actor; two Oscars across crime thrillers, historical dramas and stage work"
+  },
+  {
+    "name": "Viola Davis",
+    "fact": "American actress; Oscar, Emmy and Tony winner, legal thriller series and stage acclaim"
+  },
+  {
+    "name": "Leonardo DiCaprio",
+    "fact": "American actor; teen star of the 1990s turned Oscar winner in epic dramas"
+  },
+  {
+    "name": "Charlie Chaplin",
+    "fact": "English actor and director; silent-era comedian known for bowler hat, cane and shuffling walk"
+  },
+  {
+    "name": "Alfred Hitchcock",
+    "fact": "English film director; defined the suspense thriller, appeared in brief cameos in his own films"
+  },
+  {
+    "name": "Marilyn Monroe",
+    "fact": "American actress; blonde star of 1950s Hollywood comedies, still a symbol of screen glamour"
+  },
+  {
+    "name": "Audrey Hepburn",
+    "fact": "British actress; elegant star of 1950s and 1960s cinema, later a UNICEF goodwill ambassador"
+  },
+  {
+    "name": "Marlon Brando",
+    "fact": "American actor; method acting pioneer whose raw style reshaped screen performance, two Academy Awards"
+  },
+  {
+    "name": "Ingrid Bergman",
+    "fact": "Swedish actress; three Academy Awards, star of a classic 1940s Hollywood wartime romance"
+  },
+  {
+    "name": "Sophia Loren",
+    "fact": "Italian actress; leading star of postwar European cinema, won an Academy Award for a foreign-language role"
+  },
+  {
+    "name": "Bruce Lee",
+    "fact": "Hong Kong American actor and martial artist; popularized kung fu films around the world"
+  },
+  {
+    "name": "Sidney Poitier",
+    "fact": "Bahamian American actor; first Black actor to win the Academy Award for Best Actor"
+  },
+  {
+    "name": "Steven Spielberg",
+    "fact": "American director; blockbuster adventure and science fiction hits, plus Oscar-winning historical dramas"
+  },
+  {
+    "name": "Martin Scorsese",
+    "fact": "American director; gritty crime dramas set in New York, won a Best Director Academy Award"
+  },
+  {
+    "name": "Quentin Tarantino",
+    "fact": "American director; stylized violence, nonlinear storytelling and sharp dialogue in crime films"
+  },
+  {
+    "name": "Christopher Nolan",
+    "fact": "British American director; mind-bending science fiction blockbusters shot on large-format film"
+  },
+  {
+    "name": "Elizabeth Taylor",
+    "fact": "British American actress; violet-eyed star of epic historical dramas, won two Academy Awards"
+  },
+  {
+    "name": "Albert Einstein",
+    "fact": "German-born physicist; theory of relativity reshaped modern physics, won a Nobel Prize in Physics"
+  },
+  {
+    "name": "Isaac Newton",
+    "fact": "English physicist and mathematician; laws of motion and gravity, co-invented calculus"
+  },
+  {
+    "name": "Marie Curie",
+    "fact": "Polish-born French physicist and chemist; radioactivity research, first woman to win a Nobel Prize"
+  },
+  {
+    "name": "Galileo Galilei",
+    "fact": "Italian astronomer and physicist; improved the telescope, argued the Earth orbits the Sun"
+  },
+  {
+    "name": "Nikola Tesla",
+    "fact": "Serbian-American engineer and inventor; alternating current electricity and early work on wireless power"
+  },
+  {
+    "name": "Thomas Edison",
+    "fact": "American inventor and businessman; practical light bulb, recorded sound, over a thousand patents"
+  },
+  {
+    "name": "Charles Darwin",
+    "fact": "English naturalist; theory of evolution by natural selection, long voyage studying island wildlife"
+  },
+  {
+    "name": "Stephen Hawking",
+    "fact": "English physicist; black hole and cosmology research, widely read popular science book"
+  },
+  {
+    "name": "Alan Turing",
+    "fact": "English mathematician; founded computer science, wartime codebreaking, early ideas on machine intelligence"
+  },
+  {
+    "name": "Neil Armstrong",
+    "fact": "American astronaut; first person to walk on the Moon in 1969"
+  },
+  {
+    "name": "Yuri Gagarin",
+    "fact": "Soviet cosmonaut; first human in space, orbited the Earth in 1961"
+  },
+  {
+    "name": "Louis Pasteur",
+    "fact": "French chemist and microbiologist; germ theory, vaccines, heat treatment that makes food safer"
+  },
+  {
+    "name": "Alexander Fleming",
+    "fact": "Scottish doctor and researcher; discovered penicillin, the first widely used antibiotic"
+  },
+  {
+    "name": "Sigmund Freud",
+    "fact": "Austrian neurologist; founded psychoanalysis and theories about dreams and the unconscious mind"
+  },
+  {
+    "name": "Florence Nightingale",
+    "fact": "English nurse and statistician; founded modern nursing, reformed hospital hygiene during wartime"
+  },
+  {
+    "name": "Nicolaus Copernicus",
+    "fact": "Polish astronomer; proposed that the Earth and the planets orbit the Sun"
+  },
+  {
+    "name": "Jane Goodall",
+    "fact": "English primatologist; decades studying wild chimpanzees in Africa, later a conservation campaigner"
+  },
+  {
+    "name": "Archimedes",
+    "fact": "Ancient Greek mathematician and inventor; buoyancy principle, early work on levers and pi"
+  },
+  {
+    "name": "Napoleon Bonaparte",
+    "fact": "French general and emperor; rose through the army to conquer much of Europe"
+  },
+  {
+    "name": "Julius Caesar",
+    "fact": "Roman general and statesman; conquered Gaul and ruled as dictator before the empire began"
+  },
+  {
+    "name": "Cleopatra",
+    "fact": "Egyptian queen; last ruler of an ancient dynasty, allied with two powerful Roman leaders"
+  },
+  {
+    "name": "Alexander the Great",
+    "fact": "Macedonian king and general; conquered a vast empire reaching from Greece to northern India"
+  },
+  {
+    "name": "Genghis Khan",
+    "fact": "Mongol warrior and ruler; united nomadic tribes and founded a vast empire across Asia"
+  },
+  {
+    "name": "Queen Victoria",
+    "fact": "British monarch; reigned more than sixty years while the empire spanned the globe"
+  },
+  {
+    "name": "Winston Churchill",
+    "fact": "British prime minister; led the country through the Second World War, known for wartime speeches"
+  },
+  {
+    "name": "Abraham Lincoln",
+    "fact": "American president; led the country through civil war and helped end slavery"
+  },
+  {
+    "name": "George Washington",
+    "fact": "American general and first president; commanded revolutionary forces against British rule"
+  },
+  {
+    "name": "Mahatma Gandhi",
+    "fact": "Indian independence leader; nonviolent protest and fasting helped end British rule in his homeland"
+  },
+  {
+    "name": "Nelson Mandela",
+    "fact": "South African leader; campaigned against racial segregation and became the first democratically elected president"
+  },
+  {
+    "name": "Joan of Arc",
+    "fact": "French teenage military leader; rallied armies during the Hundred Years War, later made a saint"
+  },
+  {
+    "name": "Catherine the Great",
+    "fact": "Russian empress; expanded the empire's borders and championed arts, education and European ideas"
+  },
+  {
+    "name": "Tutankhamun",
+    "fact": "Egyptian pharaoh; boy king whose richly filled tomb was uncovered in 1922"
+  },
+  {
+    "name": "Queen Elizabeth II",
+    "fact": "British monarch; longest reigning in the country's history and head of the Commonwealth"
+  },
+  {
+    "name": "Marie Antoinette",
+    "fact": "Austrian-born French queen; known for lavish court life in the years before the revolution"
+  },
+  {
+    "name": "Charlemagne",
+    "fact": "Frankish king; united much of western Europe and was crowned emperor by the pope"
+  },
+  {
+    "name": "Sun Tzu",
+    "fact": "Chinese general and strategist; ancient writings on military tactics are still studied worldwide"
+  },
+  {
+    "name": "Bill Gates",
+    "fact": "American software entrepreneur and philanthropist; co-founded a huge personal computer software company, now funds global health work"
+  },
+  {
+    "name": "Steve Jobs",
+    "fact": "American technology entrepreneur; co-founded the firm that popularized personal computers, music players and smartphones"
+  },
+  {
+    "name": "Jeff Bezos",
+    "fact": "American entrepreneur; founded the world's biggest online store, later started a private rocket company"
+  },
+  {
+    "name": "Elon Musk",
+    "fact": "South African-born American entrepreneur; electric cars, reusable rockets and satellite internet businesses"
+  },
+  {
+    "name": "Mark Zuckerberg",
+    "fact": "American technology entrepreneur; started the world's largest social network while at university"
+  },
+  {
+    "name": "Warren Buffett",
+    "fact": "American investor and philanthropist; decades of successful stock picking, pledged most of his fortune to charity"
+  },
+  {
+    "name": "Oprah Winfrey",
+    "fact": "American talk show host and media entrepreneur; built a daytime television and magazine business"
+  },
+  {
+    "name": "Walt Disney",
+    "fact": "American animator and entrepreneur; pioneered feature-length cartoons and built the first modern theme parks"
+  },
+  {
+    "name": "Sam Altman",
+    "fact": "American entrepreneur; leads the research lab behind a widely used artificial intelligence chatbot"
+  },
+  {
+    "name": "Estee Lauder",
+    "fact": "American businesswoman; grew a small line of face creams into a global cosmetics company"
+  },
+  {
+    "name": "Coco Chanel",
+    "fact": "French fashion designer; jersey suits, the little black dress and a best-selling perfume"
+  },
+  {
+    "name": "Jack Ma",
+    "fact": "Chinese entrepreneur; former English teacher who built a giant online shopping and payments group"
+  },
+  {
+    "name": "Richard Branson",
+    "fact": "British entrepreneur; music labels, airlines and space tourism under one brand, plus record-setting balloon flights"
+  },
+  {
+    "name": "William Shakespeare",
+    "fact": "English playwright and poet; wrote tragedies, comedies and sonnets still performed worldwide"
+  },
+  {
+    "name": "Leonardo da Vinci",
+    "fact": "Italian painter and inventor; Renaissance thinker known for portraits, anatomy studies and flying machine sketches"
+  },
+  {
+    "name": "Vincent van Gogh",
+    "fact": "Dutch painter; bold colors and swirling brushwork in landscapes and sunflower still lifes"
+  },
+  {
+    "name": "Pablo Picasso",
+    "fact": "Spanish painter and sculptor; co-founded cubism, breaking faces and objects into flat geometric shapes"
+  },
+  {
+    "name": "Frida Kahlo",
+    "fact": "Mexican painter; vivid self-portraits framed by flowers, animals and folk art symbols"
+  },
+  {
+    "name": "Michelangelo",
+    "fact": "Italian sculptor and painter; carved marble statues and painted a famous chapel ceiling in Rome"
+  },
+  {
+    "name": "Confucius",
+    "fact": "Chinese philosopher; teachings on ethics, family duty and good government shaped East Asian thought"
+  },
+  {
+    "name": "Aristotle",
+    "fact": "Greek philosopher; tutored a young Macedonian king and wrote on logic, ethics and nature"
+  },
+  {
+    "name": "Jane Austen",
+    "fact": "English novelist; witty romances about marriage, money and class in Georgian country society"
+  },
+  {
+    "name": "Salvador Dali",
+    "fact": "Spanish painter; surreal dream images with melting clocks, and a famous upturned moustache"
+  },
+  {
+    "name": "Andy Warhol",
+    "fact": "American pop artist; silkscreen prints of soup cans and repeated celebrity portraits"
+  },
+  {
+    "name": "Leo Tolstoy",
+    "fact": "Russian novelist; long nineteenth century epics about aristocratic families, faith and the Napoleonic wars"
+  },
+  {
+    "name": "Claude Monet",
+    "fact": "French painter; founder of impressionism, painted the same gardens and cathedrals in changing light"
+  },
+  {
+    "name": "Agatha Christie",
+    "fact": "English crime novelist; puzzle mysteries with a Belgian detective and a village sleuth"
+  },
+  {
+    "name": "Oscar Wilde",
+    "fact": "Irish writer and wit; comic plays, one gothic novel and many widely quoted one-liners"
+  },
+  {
+    "name": "Ellen DeGeneres",
+    "fact": "American comedian and talk show host; long-running daytime show with dancing, celebrity interviews and stand-up roots"
+  },
+  {
+    "name": "Trevor Noah",
+    "fact": "South African comedian; hosted a satirical American late-night news program, worldwide stand-up tours"
+  },
+  {
+    "name": "Jimmy Fallon",
+    "fact": "American comedian and late-night host; sketch comedy background, celebrity party games and musical parodies"
+  },
+  {
+    "name": "Ricky Gervais",
+    "fact": "English comedian and writer; created mockumentary workplace sitcoms, hosted awards ceremonies, tours stand-up worldwide"
+  },
+  {
+    "name": "Rowan Atkinson",
+    "fact": "English comedian and actor; near-silent slapstick character known worldwide, plus a historical period sitcom"
+  },
+  {
+    "name": "Jim Carrey",
+    "fact": "Canadian actor and comedian; rubber-faced physical comedy in hit 1990s films, later dramatic roles"
+  },
+  {
+    "name": "Robin Williams",
+    "fact": "American comedian and actor; lightning-fast improvised stand-up, voice work and an Academy Award"
+  },
+  {
+    "name": "Jerry Seinfeld",
+    "fact": "American comedian; observational stand-up and a widely watched 1990s New York sitcom"
+  },
+  {
+    "name": "Kevin Hart",
+    "fact": "American comedian and actor; stadium stand-up tours and a run of comedy films"
+  },
+  {
+    "name": "Whoopi Goldberg",
+    "fact": "American comedian and actress; daytime talk show panelist, winner of Oscar, Emmy, Grammy and Tony"
+  },
+  {
+    "name": "Sacha Baron Cohen",
+    "fact": "English comedian and actor; invented outlandish characters who prank real people in mock documentaries"
+  },
+  {
+    "name": "MrBeast",
+    "fact": "American YouTuber; big-budget stunt and giveaway videos, one of the most-subscribed channels ever"
+  },
+  {
+    "name": "David Attenborough",
+    "fact": "English broadcaster and naturalist; long-running wildlife documentary series and instantly recognizable narration"
+  },
+  {
+    "name": "Sofia Vergara",
+    "fact": "Colombian-American actress and television personality; long-running family comedy sitcom, later a talent show judge"
+  },
+  {
+    "name": "Mother Teresa",
+    "fact": "Albanian-born Catholic nun; founded an order caring for the poor in India, Nobel Peace Prize"
+  },
+  {
+    "name": "Martin Luther King Jr.",
+    "fact": "American civil rights leader; nonviolent campaign for racial equality, famous Washington speech, Nobel Peace Prize"
+  },
+  {
+    "name": "Malala Yousafzai",
+    "fact": "Pakistani education activist; campaigns for girls' schooling, youngest ever Nobel Peace Prize winner"
+  },
+  {
+    "name": "Dalai Lama",
+    "fact": "Tibetan Buddhist monk; exiled spiritual leader known for teaching compassion, Nobel Peace Prize winner"
+  },
+  {
+    "name": "Pope Francis",
+    "fact": "Argentine religious leader; first head of the Catholic Church born in Latin America"
+  },
+  {
+    "name": "Princess Diana",
+    "fact": "British royal; charity work on landmine clearance and hospitals, followed closely around the world"
+  },
+  {
+    "name": "Greta Thunberg",
+    "fact": "Swedish climate activist; school strikes inspired worldwide youth protests over global warming"
+  },
+  {
+    "name": "Christopher Columbus",
+    "fact": "Italian explorer; 1492 voyage across the Atlantic began lasting European contact with the Americas"
+  },
+  {
+    "name": "Ferdinand Magellan",
+    "fact": "Portuguese explorer; led the first expedition to sail all the way around the world"
+  },
+  {
+    "name": "Marta",
+    "fact": "Brazilian footballer; six-time world player of the year, leading scorer in World Cup history"
+  },
+  {
+    "name": "PewDiePie",
+    "fact": "Swedish YouTuber; gaming commentary and reaction videos, among the first to reach 100 million subscribers"
+  },
+  {
+    "name": "Akira Kurosawa",
+    "fact": "Japanese film director; samurai epics that shaped global cinema and inspired many Western remakes"
+  },
+  {
+    "name": "Gabriel Garcia Marquez",
+    "fact": "Colombian novelist; magical realism stories of Latin American families, Nobel Prize in Literature"
+  }
+]
