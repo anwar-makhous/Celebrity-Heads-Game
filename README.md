@@ -23,6 +23,62 @@ npm run dev        # game server on 3001, Vite on http://localhost:5173
 `npm run dev` runs both processes and prefixes their output with `[server]` and `[vite]`.
 Set `PORT` to move the game server (`PORT=4000 npm start`).
 
+## Deploy on Cloudflare Workers
+
+This project deploys as a **Cloudflare Worker**, not as a Cloudflare Pages project. The Worker
+serves the Vite build from `dist/`; requests under `/api/*` are sent to one SQLite-backed Durable
+Object named `GameRoom`. That object is the single shared game room, stores the game snapshot,
+keeps the SSE streams, and uses a Durable Object alarm for the turn deadline.
+
+```bash
+npm install
+npm run build
+npm run deploy
+```
+
+The commands above use the explicit `wrangler` development dependency and
+[`wrangler.jsonc`](wrangler.jsonc). Do **not** use `npx wrangler deploy`, and do not point
+Wrangler at `vite.config.js`.
+
+For a local production-topology check (Worker, assets, Durable Object, and local SQLite state):
+
+```bash
+npm run cf:dev
+```
+
+### Cloudflare dashboard setup
+
+1. Use a Cloudflare account on the Workers Free plan and run `wrangler login` once in your own
+   terminal.
+2. Deploy with the commands above. The first deploy creates the `GameRoom` SQLite Durable Object
+   namespace through the `v1` migration in `wrangler.jsonc`; do not create a binding manually in
+   the dashboard.
+3. Open the generated `workers.dev` URL, or add a custom domain in **Workers & Pages →
+   celebrity-heads-game → Settings → Domains & Routes** after the first deploy.
+4. If you already made a Pages project for this app, do not use it as the production site: it has
+   no role in this Worker deployment. Remove its custom domain or delete the project after the
+   Worker URL is verified, so only one deployment is public.
+
+There are no secrets, variables, bindings, paid services, or `PORT` settings to configure. The
+configuration routes `/api/*` to the Worker first and has Workers static assets serve all other
+requests with an SPA fallback.
+
+### Free-tier and production notes
+
+- Workers Free supports the SQLite Durable Object configured here. The game uses one object, so
+  every player at this Worker URL shares the same room and state survives object eviction and
+  Worker deployments.
+- SSE streams keep the object active. This is appropriate for a small game room, but Cloudflare's
+  free Durable Object allowance is finite; if the daily limit is exhausted, requests fail until
+  the daily reset rather than generating a charge. Review current Cloudflare limits before using
+  it for a continuously occupied public game.
+- Durable Object alarms make the 60-second turn expiration survive restarts. Cloudflare can
+  deliver an alarm late during a platform failure or maintenance, so the countdown is normally
+  60 seconds but can occasionally reveal a little late.
+- `npm run dev`, `npm run server`, and `npm start` still use the original Node server and its
+  in-memory state. `npm run cf:dev` uses the Cloudflare implementation and writes only local
+  throwaway state under `.wrangler/`, which is gitignored.
+
 ## How a game goes
 
 1. Everyone opens the page and types their name. Teams fill up evenly as people join.
@@ -78,8 +134,9 @@ Each round draws `players x 3` names that have not come up yet, so nobody repeat
 
 ## Layout
 
-- `server/` — the game state machine and a small HTTP + server-sent-events server, no dependencies.
+- `server/` — the game state machine and the Node HTTP + server-sent-events server used locally.
 - `shared/` — pure game rules used by both sides.
 - `src/` — the React client.
+- `worker/` — the Cloudflare Worker and Durable Object used in production.
 
 Teams sit side by side at 768px and wider, and stack on a phone with the timer above them.

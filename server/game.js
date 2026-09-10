@@ -1,4 +1,3 @@
-import { randomUUID } from 'node:crypto'
 import {
   MAX_PLAYERS_HARD_CAP,
   MIN_TO_START,
@@ -10,11 +9,16 @@ import {
   teamForNextPlayer,
 } from '../shared/gameLogic.js'
 
+// Keep the Node server's historical process-local sequence as a fallback.
+// Durable Object snapshots also carry nextId so an eviction cannot reuse one.
 let nextId = 1
 
 export function createGame(deck) {
   return {
     deck,
+    // The Node server kept this counter in module memory. Durable Object
+    // state can be evicted and reloaded, so it belongs in the game snapshot.
+    nextId: 1,
     version: 1,
     phase: 'lobby', // lobby | playing | reveal | roundEnd | gameEnd
     players: [], // { id, name, team, online }
@@ -65,12 +69,16 @@ export function join(game, rawName) {
   if (taken) return { error: 'Someone already joined with that name. Try another.' }
 
   const player = {
-    id: `p${nextId++}`,
-    token: randomUUID(),
+    id: `p${game.nextId ?? nextId}`,
+    // Web Crypto is available in both Node 24 and Cloudflare Workers. Do not
+    // import node:crypto here: this game module is shared by the Worker.
+    token: globalThis.crypto.randomUUID(),
     name,
     team: teamForNextPlayer(game.players),
     online: true,
   }
+  game.nextId = (game.nextId ?? nextId) + 1
+  nextId = Math.max(nextId, game.nextId)
   game.players.push(player)
   touch(game)
   return { player }
