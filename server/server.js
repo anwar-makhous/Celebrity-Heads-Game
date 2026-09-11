@@ -9,8 +9,18 @@ const ROOT = resolve(HERE, '..')
 const DIST = join(ROOT, 'dist')
 const PORT = Number(process.env.PORT ?? 3001)
 
-const deck = JSON.parse(await readFile(join(ROOT, 'src', 'personalities.json'), 'utf8'))
-const game = G.createGame(deck)
+// One file per round, same order the Worker bundles them in.
+const ROUND_FILES = ['round1.json', 'round2.json', 'round3.json']
+const decks = []
+for (const file of ROUND_FILES) {
+  try {
+    decks.push(JSON.parse(await readFile(join(ROOT, 'data', file), 'utf8')))
+  } catch {
+    console.warn(`data/${file} is missing or not valid JSON, skipping it`)
+    decks.push([])
+  }
+}
+const game = G.createGame(decks)
 
 /* -------------------------------------------------------- connected clients */
 
@@ -237,6 +247,8 @@ async function handle(req, res) {
       return run(() => G.nextRound(game, token))
     case '/api/play-again':
       return run(() => G.playAgain(game, token))
+    case '/api/end-game':
+      return run(() => G.endGame(game, token))
     default:
       return sendJson(res, 404, { error: 'no such endpoint' })
   }
@@ -272,6 +284,6 @@ server.on('clientError', (err, socket) => {
 
 server.listen(PORT, () => {
   console.log(`Celebrity Heads server on http://localhost:${PORT}`)
-  console.log(`Deck: ${deck.length} personalities`)
+  decks.forEach((d, i) => console.log(`Round ${i + 1}: ${d.length} personalities`))
   console.log('Share your machine\'s address on the network so everyone can join.')
 })

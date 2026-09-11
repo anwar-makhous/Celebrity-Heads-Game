@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Cristiano Ronaldo",
+    "fact": "Portuguese footballer; one of greatest soccer players, multiple Ballon d'Or awards"
+  },
+  {
+    "name": "Lionel Messi",
+    "fact": "Argentine footballer; won FIFA World Cup 2022 and multiple Ballon d'Or awards"
+  },
+  {
+    "name": "Elon Musk",
+    "fact": "American entrepreneur; founded Tesla, SpaceX, made electric cars mainstream"
+  },
+  {
+    "name": "Steve Jobs",
+    "fact": "American entrepreneur; co-founded Apple, revolutionized personal computing with iPhone"
+  },
+  {
+    "name": "Bill Gates",
+    "fact": "American businessman; co-founded Microsoft, richest person for many years"
+  },
+  {
+    "name": "Mark Zuckerberg",
+    "fact": "American entrepreneur; founded Facebook/Meta, connected billions of people"
+  },
+  {
+    "name": "Jeff Bezos",
+    "fact": "American businessman; founded Amazon, world's largest e-commerce company"
+  },
+  {
+    "name": "Oprah Winfrey",
+    "fact": "American media mogul; influential talk show host, became billionaire"
+  },
+  {
+    "name": "Taylor Swift",
+    "fact": "American singer; one of most successful musicians, multiple Grammy Awards"
+  },
+  {
+    "name": "Beyoncé",
+    "fact": "American singer; Grammy Award winner, cultural icon of modern music"
+  },
+  {
+    "name": "The Beatles",
+    "fact": "British band; most influential band in music history, changed rock music"
+  },
+  {
+    "name": "Michael Jackson",
+    "fact": "American musician; King of Pop, best-selling artist of all time"
+  },
+  {
+    "name": "Elvis Presley",
+    "fact": "American singer; King of Rock and Roll, cultural icon of 20th century"
+  },
+  {
+    "name": "David Bowie",
+    "fact": "British musician; innovative artist, constantly reinvented himself"
+  },
+  {
+    "name": "Shakira",
+    "fact": "Colombian singer; international pop star, famous for Hips Don't Lie"
+  },
+  {
+    "name": "Tom Cruise",
+    "fact": "American actor; action movie star, Mission Impossible franchise"
+  },
+  {
+    "name": "Leonardo DiCaprio",
+    "fact": "American actor; starred in Titanic and Inception, Academy Award winner"
+  },
+  {
+    "name": "Brad Pitt",
+    "fact": "American actor; starred in Fight Club and Ocean's Eleven, box office star"
+  },
+  {
+    "name": "Johnny Depp",
+    "fact": "American actor; famous for Pirates of the Caribbean and Edward Scissorhands"
+  },
+  {
+    "name": "Will Smith",
+    "fact": "American actor and rapper; starred in Men in Black and Bad Boys"
+  }
+]

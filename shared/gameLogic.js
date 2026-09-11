@@ -44,12 +44,36 @@ export function buildTurnOrder(players) {
   return order
 }
 
-// A round's pool is (players x 3) personalities that have not been shown yet
-// this session. Only one per turn is ever revealed; the rest go back in the hat.
-export function shuffleAndSelectPersonalities(deck, usedNames, playerCount, random = Math.random) {
+// Each round reads its own file from data/: round 1 uses the first file,
+// round 2 the second, round 3 the third. The file is shuffled every time, so
+// the same file never comes out in the same order twice.
+//
+// `needed` is one personality per player. If a round's file is too short to
+// cover everyone, the others top it up rather than cutting the round short and
+// skipping players.
+export function pickRoundDeck(decks, roundNumber, usedNames, needed, random = Math.random) {
+  const lists = (decks ?? []).filter((d) => Array.isArray(d) && d.length)
+  if (!lists.length) return []
+
+  const primary = lists[Math.min(Math.max(roundNumber, 1) - 1, lists.length - 1)]
   const used = new Set(usedNames)
-  const unshown = deck.filter((p) => !used.has(p.name))
-  return shuffle(unshown, random).slice(0, Math.max(1, playerCount * POOL_MULTIPLIER))
+  const fresh = (list) => list.filter((p) => p && p.name && !used.has(p.name))
+
+  const picked = shuffle(fresh(primary), random)
+  if (picked.length >= needed) return picked
+
+  const already = new Set(picked.map((p) => p.name))
+  const topUp = shuffle(
+    fresh(lists.filter((l) => l !== primary).flat()).filter((p) => !already.has(p.name)),
+    random,
+  )
+  const combined = [...picked, ...topUp]
+  if (combined.length >= needed) return combined
+
+  // Everything has been shown already. Start the file over rather than leave
+  // someone without a turn.
+  const names = new Set(combined.map((p) => p.name))
+  return [...combined, ...shuffle(primary, random).filter((p) => !names.has(p.name))]
 }
 
 export function secondsLeft(deadline, now = Date.now()) {

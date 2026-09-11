@@ -1,4 +1,10 @@
-import deck from '../src/personalities.json'
+// One file per round, bundled at build time. Workers have no filesystem, so
+// these are static imports: add a file to data/ and rebuild to pick it up.
+import round1 from '../data/round1.json'
+import round2 from '../data/round2.json'
+import round3 from '../data/round3.json'
+
+const decks = [round1, round2, round3]
 import * as G from '../server/game.js'
 
 const GAME_STORAGE_KEY = 'game'
@@ -35,7 +41,14 @@ export class GameRoom {
     // mutation.
     this.ready = this.state.blockConcurrencyWhile(async () => {
       const saved = await this.state.storage.get(GAME_STORAGE_KEY)
-      this.game = saved ? { ...saved, deck } : G.createGame(deck)
+      if (saved) {
+        // Drop any deck shape an older deployment persisted, then reattach the
+        // current build-time decks.
+        const { deck: legacy, decks: stale, ...rest } = saved
+        this.game = { ...rest, decks }
+      } else {
+        this.game = G.createGame(decks)
+      }
       // Handles a snapshot created by an early pre-deployment build.
       if (!Number.isInteger(this.game.nextId) || this.game.nextId < 1) {
         this.game.nextId = this.game.players.length + 1
@@ -129,6 +142,8 @@ export class GameRoom {
         return run(() => G.nextRound(this.game, token))
       case '/api/play-again':
         return run(() => G.playAgain(this.game, token))
+      case '/api/end-game':
+        return run(() => G.endGame(this.game, token))
       default:
         return json(404, { error: 'no such endpoint' })
     }
@@ -233,8 +248,9 @@ export class GameRoom {
   }
 }
 
+// The decks come from the bundle on every boot, so they never go into storage.
 function withoutDeck(game) {
-  const { deck: ignored, ...snapshot } = game
+  const { deck: legacy, decks: ignored, ...snapshot } = game
   return snapshot
 }
 

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Nikola Tesla",
+    "fact": "Serbian inventor; pioneered alternating current and wireless power"
+  },
+  {
+    "name": "Thomas Edison",
+    "fact": "American inventor; perfected light bulb, revolutionized electricity"
+  },
+  {
+    "name": "Stephen Hawking",
+    "fact": "English physicist; revolutionized understanding of black holes"
+  },
+  {
+    "name": "Martin Luther King Jr.",
+    "fact": "American civil rights leader; I Have a Dream speech, won Nobel Peace Prize"
+  },
+  {
+    "name": "Mahatma Gandhi",
+    "fact": "Indian independence leader; non-violent resistance freed India from Britain"
+  },
+  {
+    "name": "Nelson Mandela",
+    "fact": "South African freedom fighter; ended apartheid, first black president"
+  },
+  {
+    "name": "Abraham Lincoln",
+    "fact": "American President; abolished slavery, led country through Civil War"
+  },
+  {
+    "name": "Winston Churchill",
+    "fact": "British Prime Minister; led Britain through World War II"
+  },
+  {
+    "name": "Napoleon Bonaparte",
+    "fact": "French military leader; conquered much of Europe, revolutionary general"
+  },
+  {
+    "name": "Alexander the Great",
+    "fact": "Macedonian conqueror; created largest ancient empire by age 32"
+  },
+  {
+    "name": "Julius Caesar",
+    "fact": "Roman general; conquered Gaul, assassinated on the Ides of March"
+  },
+  {
+    "name": "Cleopatra VII",
+    "fact": "Egyptian pharaoh; last ruler of independent Egypt, strategic leader"
+  },
+  {
+    "name": "Mozart",
+    "fact": "Austrian composer; musical genius, wrote 600+ compositions"
+  },
+  {
+    "name": "Ludwig van Beethoven",
+    "fact": "German composer; created greatest symphonies despite being deaf"
+  },
+  {
+    "name": "Johann Sebastian Bach",
+    "fact": "German composer; master of classical music, influenced all musicians"
+  },
+  {
+    "name": "William Shakespeare",
+    "fact": "English playwright; wrote 39 plays, most quoted writer in English"
+  },
+  {
+    "name": "Buddha",
+    "fact": "Indian spiritual leader; founded Buddhism, followed by 500 million people"
+  },
+  {
+    "name": "Confucius",
+    "fact": "Chinese philosopher; taught virtue and proper conduct, influenced billions"
+  },
+  {
+    "name": "Leonardo da Vinci",
+    "fact": "Italian Renaissance genius; artist, inventor, scientist 500 years ahead"
+  },
+  {
+    "name": "Michelangelo",
+    "fact": "Italian Renaissance artist; sculpted David, painted Sistine Chapel"
+  }
+]

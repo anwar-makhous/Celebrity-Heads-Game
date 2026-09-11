@@ -86,6 +86,100 @@ function Banner({ connected, error }) {
   )
 }
 
+// Leaving is a normal thing to do, closing the game for everyone is not, so
+// both live behind the dots rather than sitting on the screen as big buttons.
+function GameMenu({ state, actions, busy }) {
+  const [open, setOpen] = useState(false)
+  const [confirming, setConfirming] = useState(false)
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') { setOpen(false); setConfirming(false) } }
+    const onClick = (e) => { if (!e.target.closest?.('[data-game-menu]')) { setOpen(false); setConfirming(false) } }
+    window.addEventListener('keydown', onKey)
+    window.addEventListener('click', onClick)
+    return () => { window.removeEventListener('keydown', onKey); window.removeEventListener('click', onClick) }
+  }, [open])
+
+  return (
+    <div className="relative" data-game-menu>
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label="Game options"
+        onClick={() => { setOpen((v) => !v); setConfirming(false) }}
+        className={`h-11 w-11 rounded-lg border-2 border-slate-300 bg-white text-[20px] font-bold text-slate-700 hover:bg-slate-100 ${RING}`}
+      >
+        &#8943;
+      </button>
+
+      {open ? (
+        <div
+          role="menu"
+          className="absolute right-0 z-20 mt-2 w-72 rounded-xl border-2 border-slate-200 bg-white p-2 shadow-lg"
+        >
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => { setOpen(false); actions.leave() }}
+            disabled={busy}
+            className={`w-full rounded-lg px-4 py-3 text-left text-[16px] font-semibold text-slate-800 hover:bg-slate-100 disabled:text-slate-400 ${RING}`}
+          >
+            Leave the game
+            <span className="block text-[14px] font-normal text-slate-600">
+              Just you. Everyone else carries on.
+            </span>
+          </button>
+
+          {state.can?.endGame ? (
+            confirming ? (
+              <div className="mt-1 rounded-lg bg-red-50 p-3">
+                <p className="text-[15px] font-semibold text-red-900">
+                  Close the game for everybody?
+                </p>
+                <p className="mt-1 text-[14px] text-red-900">
+                  Scores are lost and everyone goes back to the lobby.
+                </p>
+                <div className="mt-3 flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => { setOpen(false); setConfirming(false); actions.endGame() }}
+                    disabled={busy}
+                    className={`flex-1 rounded-lg bg-red-600 px-3 py-2 text-[15px] font-bold text-white hover:bg-red-700 ${RING}`}
+                  >
+                    Yes, close it
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setConfirming(false)}
+                    className={`flex-1 rounded-lg border-2 border-slate-300 px-3 py-2 text-[15px] font-semibold text-slate-700 hover:bg-slate-100 ${RING}`}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                role="menuitem"
+                onClick={() => setConfirming(true)}
+                disabled={busy}
+                className={`mt-1 w-full rounded-lg px-4 py-3 text-left text-[16px] font-semibold text-red-800 hover:bg-red-50 disabled:text-slate-400 ${RING}`}
+              >
+                Close the game for everyone
+                <span className="block text-[14px] font-normal text-red-800">
+                  Ends this game and sends everybody back to the lobby.
+                </span>
+              </button>
+            )
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 /* ------------------------------------------------------------------- join */
 
 function JoinScreen({ onJoin, busy, banner, savedName }) {
@@ -249,9 +343,12 @@ function TurnScreen({ state, actions, busy, skew, banner }) {
         <p className="text-[18px] text-slate-600">
           Turn {state.turnNumber} of {state.turnsPerRound}
         </p>
-        <p className="text-[16px] font-semibold text-slate-600">
-          You are {state.you.name}, Team {state.you.team}
-        </p>
+        <div className="flex items-center gap-3">
+          <p className="text-[16px] font-semibold text-slate-600">
+            You are {state.you.name}, Team {state.you.team}
+          </p>
+          <GameMenu state={state} actions={actions} busy={busy} />
+        </div>
       </header>
 
       <div className="mx-auto w-full max-w-7xl">{banner}</div>
@@ -293,7 +390,9 @@ function TurnScreen({ state, actions, busy, skew, banner }) {
                   ? `Team ${state.lastScorer} got it, one point.`
                   : state.lastOutcome === 'timeout'
                     ? 'Time ran out, no point.'
-                    : 'Skipped, no point.'}
+                    : state.lastOutcome === 'left'
+                      ? 'That player left the game, no point.'
+                      : 'Skipped, no point.'}
               </p>
               <button
                 type="button"
@@ -445,6 +544,9 @@ function BetweenScreen({ state, actions, busy, banner }) {
     <div className="flex min-h-full items-center justify-center bg-slate-50 px-4 py-10">
       <div className="w-full max-w-2xl rounded-2xl border-2 border-slate-200 bg-white p-6 text-center sm:p-10">
         {banner}
+        <div className="flex justify-end">
+          <GameMenu state={state} actions={actions} busy={busy} />
+        </div>
         <h1 className="text-[32px] leading-tight font-bold text-slate-900 sm:text-[40px]">
           {isGameEnd ? 'Game Over' : `Round ${state.round}/${state.totalRounds} Complete`}
         </h1>

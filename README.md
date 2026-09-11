@@ -118,7 +118,18 @@ Refreshing keeps your place: your identity is remembered in that browser's local
 
 ## The personalities
 
-[src/personalities.json](src/personalities.json) is a plain list read by the server at startup:
+The decks live in `data/`, one file per round:
+
+| File | Used for |
+| --- | --- |
+| `data/round1.json` | Round 1 |
+| `data/round2.json` | Round 2 |
+| `data/round3.json` | Round 3 |
+
+So put the easy names in `round1.json` and the hard ones in `round3.json`. Any further files in
+`data/` are ignored. Each round shuffles its own file, so the order is different every game.
+
+Each file is a plain list:
 
 ```json
 [
@@ -126,11 +137,24 @@ Refreshing keeps your place: your identity is remembered in that browser's local
 ]
 ```
 
-Add or remove freely, then restart the server. Two rules for `fact`: keep it short, and never let
-it contain any part of the person's name — it would give the answer away.
+Two rules for `fact`: keep it short, and never let it contain any part of the person's name, or it
+gives the answer away.
 
-Each round draws `players x 3` names that have not come up yet, so nobody repeats in one session.
-13 players needs at least 39 entries; the file ships with 196.
+A file needs at least one entry per player (13 players means 13 entries). If a file is short the
+other rounds' files top it up rather than skipping anyone's turn.
+
+**The files are bundled at build time**, because Cloudflare Workers have no filesystem. After
+editing anything in `data/`, run `npm run build` again (and redeploy) for the change to show up.
+Locally, `npm run server` re-reads them on restart.
+
+## Leaving and closing a game
+
+The `...` button on the game screen has two options:
+
+- **Leave the game** - just you. Your turn is dropped and everyone else carries on. If you were
+  the one guessing, the turn ends with no point and everybody sees the answer.
+- **Close the game for everyone** - ends the game for the whole room and sends everybody back to
+  the lobby. It asks you to confirm first, since it throws the scores away.
 
 ## Layout
 

@@ -136,10 +136,27 @@ export function useGame() {
     return () => clearTimeout(id)
   }, [error])
 
+  // Leaving gives up this browser's identity, so the join screen comes back.
+  const leave = useCallback(async () => {
+    const data = await post('/api/leave')
+    if (data) {
+      try {
+        localStorage.removeItem(TOKEN_KEY)
+      } catch {
+        /* nothing to clear */
+      }
+      applied.current = 0
+      setState(null)
+      setToken(null)
+    }
+    return data
+  }, [post])
+
   const actions = {
     join,
     dismissError: useCallback(() => setError(null), []),
-    leave: useCallback(() => post('/api/leave'), [post]),
+    leave,
+    endGame: useCallback(() => post('/api/end-game'), [post]),
     start: useCallback(() => post('/api/start'), [post]),
     gotIt: useCallback(() => postTurn('/api/end-turn', { outcome: 'correct' }), [postTurn]),
     skip: useCallback(() => postTurn('/api/end-turn', { outcome: 'skip' }), [postTurn]),

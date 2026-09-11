@@ -5,7 +5,7 @@ import {
   TURN_SECONDS,
   buildTurnOrder,
   cleanName,
-  shuffleAndSelectPersonalities,
+  pickRoundDeck,
   teamForNextPlayer,
 } from '../shared/gameLogic.js'
 
@@ -13,9 +13,11 @@ import {
 // Durable Object snapshots also carry nextId so an eviction cannot reuse one.
 let nextId = 1
 
-export function createGame(deck) {
+// `decks` is one list per round, loaded from data/. Round 1 uses decks[0],
+// round 2 decks[1], round 3 decks[2].
+export function createGame(decks) {
   return {
-    deck,
+    decks,
     // The Node server kept this counter in module memory. Durable Object
     // state can be evicted and reloaded, so it belongs in the game snapshot.
     nextId: 1,
@@ -108,18 +110,52 @@ export function setOnline(game, token, online) {
 // Only allowed from the lobby, so a game in progress cannot lose a player and
 // break its turn order.
 export function leave(game, token) {
-  if (game.phase !== 'lobby') return { error: 'You can only leave before the game starts.' }
   const me = byToken(game, token)
   if (!me) return { error: 'unknown player' }
-  const before = game.players.length
+
+  const wasGuesser = guesserId(game) === me.id
   game.players = game.players.filter((p) => p.id !== me.id)
-  if (game.players.length === before) return { error: 'unknown player' }
-  // Rebalance so the teams stay even after someone drops out.
-  const rebalanced = []
-  for (const p of game.players) {
-    rebalanced.push({ ...p, team: teamForNextPlayer(rebalanced) })
+
+  if (game.phase === 'lobby') {
+    // Rebalance so the teams stay even after someone drops out.
+    const rebalanced = []
+    for (const p of game.players) {
+      rebalanced.push({ ...p, team: teamForNextPlayer(rebalanced) })
+    }
+    game.players = rebalanced
+    touch(game)
+    return {}
   }
-  game.players = rebalanced
+
+  // Mid game. Take their turn out of the running order, and the personality
+  // that went with it, so nobody else's turn shifts. The player whose turn it
+  // is right now keeps their slot, so the reveal below still makes sense.
+  const idx = game.turnOrder.indexOf(me.id)
+  if (idx !== -1 && !wasGuesser) {
+    game.turnOrder.splice(idx, 1)
+    if (idx < game.pool.length) game.pool.splice(idx, 1)
+    if (idx < game.turnIndex) game.turnIndex -= 1
+  }
+
+  // A team with nobody left cannot go on.
+  const teamsLeft = ['A', 'B'].every((side) => game.players.some((p) => p.team === side))
+  if (!game.players.length || !teamsLeft) {
+    game.phase = 'gameEnd'
+    game.current = null
+    game.turnEndsAt = null
+    touch(game)
+    return {}
+  }
+
+  // The person who was guessing walked off. End the turn with no point and
+  // show everyone the answer, the same as a skip.
+  if (wasGuesser && game.phase === 'playing') {
+    game.lastOutcome = 'left'
+    game.lastScorer = null
+    game.turnEndsAt = null
+    game.phase = 'reveal'
+  }
+
   touch(game)
   return {}
 }
@@ -131,12 +167,11 @@ function startRound(game, roundNumber) {
   game.round = roundNumber
   game.turnOrder = buildTurnOrder(playing)
   game.turnIndex = 0
-  game.pool = shuffleAndSelectPersonalities(game.deck, game.usedNames, playing.length)
-  // If the deck cannot cover a turn per player any more, start a fresh cycle
-  // rather than silently cutting the round short and skipping people.
+  game.pool = pickRoundDeck(game.decks, roundNumber, game.usedNames, game.turnOrder.length)
+  // Nothing left anywhere: start the names over rather than skip players.
   if (game.pool.length < game.turnOrder.length) {
     game.usedNames = []
-    game.pool = shuffleAndSelectPersonalities(game.deck, game.usedNames, playing.length)
+    game.pool = pickRoundDeck(game.decks, roundNumber, game.usedNames, game.turnOrder.length)
   }
   game.current = game.pool[0] ?? null
   if (game.current) game.usedNames.push(game.current.name)
@@ -251,9 +286,7 @@ export function nextRound(game, token) {
   return {}
 }
 
-export function playAgain(game, token) {
-  if (!byToken(game, token)) return { error: 'Join the game first.' }
-  if (game.phase !== 'gameEnd') return { error: 'The game is not over.' }
+function resetToLobby(game) {
   game.phase = 'lobby'
   game.round = 0
   game.usedNames = []
@@ -266,6 +299,22 @@ export function playAgain(game, token) {
   game.turnEndsAt = null
   game.lastOutcome = null
   game.lastScorer = null
+}
+
+export function playAgain(game, token) {
+  if (!byToken(game, token)) return { error: 'Join the game first.' }
+  if (game.phase !== 'gameEnd') return { error: 'The game is not over.' }
+  resetToLobby(game)
+  touch(game)
+  return {}
+}
+
+// "Close the game" from the menu. Ends the game for everybody, whatever phase
+// it is in, and drops the whole room back to the lobby with the roster intact.
+export function endGame(game, token) {
+  if (!byToken(game, token)) return { error: 'Join the game first.' }
+  if (game.phase === 'lobby') return { error: 'There is no game running.' }
+  resetToLobby(game)
   touch(game)
   return {}
 }
@@ -343,7 +392,7 @@ export function viewFor(game, token) {
     turnEndsAt: game.turnEndsAt,
     lastOutcome: game.lastOutcome,
     lastScorer: game.lastScorer,
-    deckSize: game.deck.length,
+    deckSize: (game.decks ?? []).reduce((n, d) => n + (d?.length ?? 0), 0),
     // What this turn is, so an action can say which turn it meant.
     turnKey: { round: game.round, turnIndex: game.turnIndex },
     can: {
@@ -353,6 +402,8 @@ export function viewFor(game, token) {
       advance: game.phase === 'reveal' && !!you,
       nextRound: game.phase === 'roundEnd' && !!you,
       playAgain: game.phase === 'gameEnd' && !!you,
+      leave: !!you,
+      endGame: game.phase !== 'lobby' && !!you,
     },
   }
 }

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Dwayne Johnson",
+    "fact": "American actor; known as The Rock, starred in Fast & Furious and Jumanji"
+  },
+  {
+    "name": "Emma Watson",
+    "fact": "British actress; famous for playing Hermione Granger in Harry Potter"
+  },
+  {
+    "name": "Scarlett Johansson",
+    "fact": "American actress; played Black Widow in Marvel Cinematic Universe"
+  },
+  {
+    "name": "Angelina Jolie",
+    "fact": "American actress; known for action films and humanitarian work"
+  },
+  {
+    "name": "Tom Hanks",
+    "fact": "American actor; starred in Forrest Gump and Saving Private Ryan"
+  },
+  {
+    "name": "Morgan Freeman",
+    "fact": "American actor; legendary voice and roles in major films"
+  },
+  {
+    "name": "Steven Spielberg",
+    "fact": "American filmmaker; director of Jaws, Jurassic Park, Schindler's List"
+  },
+  {
+    "name": "Christopher Nolan",
+    "fact": "British director; created Inception and The Dark Knight trilogy"
+  },
+  {
+    "name": "Quentin Tarantino",
+    "fact": "American director; famous for Pulp Fiction and Kill Bill"
+  },
+  {
+    "name": "Pelé",
+    "fact": "Brazilian footballer; three-time World Cup winner, football legend"
+  },
+  {
+    "name": "Diego Maradona",
+    "fact": "Argentine footballer; won World Cup 1986, greatest dribbler ever"
+  },
+  {
+    "name": "Muhammad Ali",
+    "fact": "American boxer; heavyweight champion, activist, cultural icon"
+  },
+  {
+    "name": "Usain Bolt",
+    "fact": "Jamaican sprinter; fastest human ever, Olympic gold medals"
+  },
+  {
+    "name": "Serena Williams",
+    "fact": "American tennis legend; won 23 Grand Slam titles, greatest female athlete"
+  },
+  {
+    "name": "Michael Jordan",
+    "fact": "American basketball player; considered greatest athlete ever, NBA legend"
+  },
+  {
+    "name": "Babe Ruth",
+    "fact": "American baseball player; baseball legend, home run record holder"
+  },
+  {
+    "name": "Albert Einstein",
+    "fact": "German physicist; theory of relativity revolutionized modern physics"
+  },
+  {
+    "name": "Marie Curie",
+    "fact": "Polish scientist; discovered radioactivity, first woman to win Nobel Prize"
+  },
+  {
+    "name": "Charles Darwin",
+    "fact": "English naturalist; developed theory of evolution, changed biology"
+  },
+  {
+    "name": "Isaac Newton",
+    "fact": "English scientist; discovered laws of motion and gravity, invented calculus"
+  }
+]
