@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useGame } from './useGame.js'
 import {
+  MIN_TO_START,
   SUGGESTED_MAX,
   SUGGESTED_MIN,
   WARNING_SECONDS,
@@ -256,8 +257,9 @@ function Lobby({ state, actions, busy, banner }) {
 
         {count < SUGGESTED_MIN ? (
           <p className="mt-6 text-[16px] text-slate-600">
-            The game is built for {SUGGESTED_MIN} to {SUGGESTED_MAX} players, but you can start
-            with as few as two to try it out.
+            The game is built for {SUGGESTED_MIN} to {SUGGESTED_MAX} players. You need at least{' '}
+            {MIN_TO_START} to start, two per team, because the guesser's teammates are the ones who
+            can see the name.
           </p>
         ) : null}
 
@@ -267,10 +269,16 @@ function Lobby({ state, actions, busy, banner }) {
           disabled={busy || !state.can.start}
           className={`mt-6 ${PRIMARY}`}
         >
-          {state.can.start ? 'Start Game' : 'Waiting for someone on each team'}
+          {state.can.start
+            ? 'Start Game'
+            : count < MIN_TO_START
+              ? `Waiting for ${MIN_TO_START - count} more ${MIN_TO_START - count === 1 ? 'player' : 'players'}`
+              : 'Waiting for two players on each team'}
         </button>
         <p className="mt-3 text-[16px] text-slate-600">
-          One person pressing this starts the game for everybody.
+          {state.can.start
+            ? 'One person pressing this starts the game for everybody.'
+            : 'Send the link round. The button turns on by itself once enough people are in.'}
         </p>
 
         <button

@@ -3,11 +3,13 @@ export const TURN_SECONDS = 60
 export const WARNING_SECONDS = 10
 export const POOL_MULTIPLIER = 3
 
-// The game is designed for 8 to 13, but nothing is enforced: two players is
-// enough to start so the app can be tested with a couple of browser windows.
+// The game is designed for 8 to 13, but the size is not capped at 13.
+// Four is the real floor: the guesser's own teammates are the ones who can see
+// the name, so every team needs at least two people or nobody can answer.
 export const SUGGESTED_MIN = 8
 export const SUGGESTED_MAX = 13
-export const MIN_TO_START = 2
+export const MIN_TO_START = 4
+export const MIN_PER_TEAM = 2
 // A backstop against a join flood eating memory; far above any real game.
 export const MAX_PLAYERS_HARD_CAP = 40
 export const MAX_NAME_LENGTH = 24

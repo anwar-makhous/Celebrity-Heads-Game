@@ -1,5 +1,6 @@
 import {
   MAX_PLAYERS_HARD_CAP,
+  MIN_PER_TEAM,
   MIN_TO_START,
   TOTAL_ROUNDS,
   TURN_SECONDS,
@@ -187,13 +188,17 @@ export function canStart(game) {
   if (game.phase !== 'lobby') return false
   const a = game.players.filter((p) => p.team === 'A').length
   const b = game.players.filter((p) => p.team === 'B').length
-  return game.players.length >= MIN_TO_START && a >= 1 && b >= 1
+  // Two per team, not one: a lone player has nobody to read the name out when
+  // it is their turn to guess.
+  return game.players.length >= MIN_TO_START && a >= MIN_PER_TEAM && b >= MIN_PER_TEAM
 }
 
 export function start(game, token) {
   if (!byToken(game, token)) return { error: 'Join the game first.' }
   if (!canStart(game)) {
-    return { error: `You need at least ${MIN_TO_START} players, with someone on each team.` }
+    return {
+      error: `You need at least ${MIN_TO_START} players, with ${MIN_PER_TEAM} on each team, so every guesser has a teammate who can see the name.`,
+    }
   }
   game.scoreA = 0
   game.scoreB = 0

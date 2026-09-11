@@ -107,12 +107,12 @@ to anyone who is not allowed to know it, so opening devtools does not help.
 
 ## Testing it yourself
 
-Open the page in separate browser profiles or windows — each one is a separate player. Two
-players is enough to start.
+Open the page in separate browser profiles or windows — each one is a separate player.
 
-To see all three views at once you need **four**: two on each team. With only two players a team
-is a single person, so when it is their turn nobody is left to read the name out, and the app
-says so.
+You need **four** to start, two per team. That is not an arbitrary floor: the guesser's own
+teammates are the people who can see the name, so a team of one leaves nobody able to answer.
+Four also happens to be exactly what you need to see all three views at once — guesser, teammate,
+and opposing team.
 
 Refreshing keeps your place: your identity is remembered in that browser's local storage.
 
